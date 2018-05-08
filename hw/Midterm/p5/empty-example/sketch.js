@@ -30,13 +30,18 @@ var showHide = true;
 
 var showHideButton;
 
-var text = true;
+var textShow = true;
 
 function preload() {
     bgImage = loadImage("assets/hatetrump.png");
     bgImage2 = loadImage("assets/lovereese.png");
     bgImage3 = loadImage("assets/lovecurry.png");
     bgImage4 = loadImage("assets/lovedog.png");
+    bgImage5 = loadImage("assets/trump.png");
+    bgImage6 = loadImage("assets/reese.png");
+    bgImage7 = loadImage("assets/curry.png");
+    bgImage8 = loadImage("assets/dog.png");
+    bgImage9 = loadImage("assets/about.png");
 }
 
 function setup() {
@@ -46,19 +51,19 @@ function setup() {
    centerY = height / 2;
 
    bgChange = createButton('Example 1');
-   bgChange.position(500,500);
+   bgChange.position(400,70);
    bgChange.mousePressed(bgFunction);
 
    bgChange1 = createButton('Example 2');
-   bgChange1.position(10,500);
+   bgChange1.position(400,170);
    bgChange1.mousePressed(bgFunction1);
 
    bgChange2 = createButton('Example 3');
-   bgChange2.position(100,500);
+   bgChange2.position(400,260);
    bgChange2.mousePressed(bgFunction2);
 
    bgChange3 = createButton('Example 4');
-   bgChange3.position(200,500);
+   bgChange3.position(400,420);
    bgChange3.mousePressed(bgFunction3);
 
    bgChange4 = createButton('About this Project');
@@ -71,12 +76,21 @@ function setup() {
 
 function draw() {
   // put drawing code here
-  image(currentBgImage, 0, 0);
+  background(255);
+  image(currentBgImage, 0, 0, 100,400);
+
+  image(bgImage5,200,0,300,100);
+  image(bgImage6,200,100,300,100);
+  image(bgImage7,200,200,300,100);
+  image(bgImage8,200,300,200,200);
+
 
    if (changeColor == true) {
        randomColor[0] = random(256);
        randomColor[1] = random(256);
        randomColor[2] = random(256);
+}
+
 }
 
 function mousePressed() {
@@ -88,18 +102,23 @@ function mousePressed() {
       b = random(255);
     }
 
-    function bgFunction() {
+  }
+
+    function bgFunction(){
     currentBgImage = bgImage;
 }
 
-function bgFunction1() {
+function bgFunction1(){
     currentBgImage = bgImage2;
 }
 
-function bgFunction2() {
+function bgFunction2(){
     currentBgImage = bgImage3;
 }
-function bgFunction3() {
+function bgFunction3(){
     currentBgImage = bgImage4;
 }
+
+function bgFunction4(){
+    currentBgImage = bgImage9;
 }
