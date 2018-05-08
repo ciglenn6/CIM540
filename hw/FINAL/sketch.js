@@ -2,11 +2,14 @@ var tongue;
 var wink;
 var butt
 var sit;
+var bgImage;
 
 function preload() {
 
-butt = createSprite(200, 200, 100, 100);
-tongue = createSprite(200, 150, 100, 100);
+butt = createSprite(200, 300, 100, 100);
+tongue = createSprite(200, 300, 100, 100);
+bgImage = loadImage("assets/info.png",300,200);
+bgImage1 = loadImage("assets/meet.png",300,0);
 
 
 tongue.addAnimation("assets/1.png", "assets/2.png", "assets/3.png","assets/4.png","assets/5.png","assets/6.png", "assets/7.png", "assets/8.png");
@@ -19,7 +22,7 @@ sit = loadAnimation("assets/h1.png","assets/h2.png","assets/h3.png")
 }
 
 function setup() {
-  createCanvas(800,300);
+  createCanvas(800,800);
 
   wink.frameDelay = 10;
   sit.frameDelay = 10;
@@ -29,11 +32,13 @@ function setup() {
 
 function draw() {
   background(255,255,255);
+  image(bgImage,0,100,800,40);
+  image(bgImage1,0,0,800,100);
 
   //animation(tongue, 300, 150);
-  animation(wink, 500, 150);
+  animation(wink, 500, 300);
   //animation(butt, 100, 150);
-  animation(sit, 700, 150);
+  animation(sit, 700, 300);
 
 
 butt.attractionPoint(.2, mouseX, mouseY);
