@@ -1,25 +1,43 @@
-var centerX = 250;
-var centerY = 250;
+var button;
 
-var hatetrump;
-var lovereese;
-var lovedog;
-var lovecurry;
-var bgImage;
-var hatetrumpButton;
-var lovereeseButton;
-var lovedogButton;
-var lovecurryButton;
+var pics = [];
 
+var imageSize = (320,480);
 
+var b = 0;
+
+var targetPosX = [0,200,400, 600];
+
+var targetPosY = [0,200]
+
+var imageSize = 200;
+
+var centerX = 0;
+var centerY = 0;
+
+var bgChange, bgChange1, bgImage2;
+
+var bgImage, bgImage2, currentBgImage;
+
+var hitZoneX = 100;
+var hitZoneY = 100;
+
+var changeColor = false;
+
+var randomColor = [255, 255, 255];
+
+var showHide = true;
+
+var showHideButton;
+
+var text = true;
 
 function preload() {
-hatetrump = loadImage("Assets/hatetrump.png");
-lovereese = loadImage("Assets/lovereese.png");
-lovedog = loadImage("Assets/lovedog.png");
-lovecurry = loadImage("Assets/lovecurry.png")
+    bgImage = loadImage("assets/hatetrump.png");
+    bgImage2 = loadImage("assets/lovereese.png");
+    bgImage3 = loadImage("assets/lovecurry.png");
+    bgImage4 = loadImage("assets/lovedog.png");
 }
-
 
 function setup() {
   // put setup code here
@@ -27,40 +45,61 @@ function setup() {
    centerX = width / 2;
    centerY = height / 2;
 
-   bgImage = hatetrump;
-   hatetrumpButton = createButton('Example 1');
-   hatetrumpButton.position(10,10);
-   hatetrumpButton.mousePressed(function(){
-   bgImage = hatetrump;
-   });
+   bgChange = createButton('Example 1');
+   bgChange.position(500,500);
+   bgChange.mousePressed(bgFunction);
 
-   bgImage = lovereese;
-   lovereeseButton = createButton('Example 2');
-   lovereeseButton.position(150,10);
-   lovereeseButton.mousePressed(function(){
-   bgImage = lovereese;
-   });
+   bgChange1 = createButton('Example 2');
+   bgChange1.position(10,500);
+   bgChange1.mousePressed(bgFunction1);
 
-   bgImage = lovedog;
-   lovedogButton = createButton('Example 3');
-   lovedogButton.position(250,10);
-   lovedogButton.mousePressed(function(){
-   bgImage = lovedog;
-   });
+   bgChange2 = createButton('Example 3');
+   bgChange2.position(100,500);
+   bgChange2.mousePressed(bgFunction2);
 
-   bgImage = lovecurry;
-   lovecurryButton = createButton('Example 4');
-   lovecurryButton.position(350,10);
-   lovecurryButton.mousePressed(function(){
-   bgImage = lovecurry;
-   });
+   bgChange3 = createButton('Example 4');
+   bgChange3.position(200,500);
+   bgChange3.mousePressed(bgFunction3);
 
+   bgChange4 = createButton('About this Project');
+   bgChange4.position(300,500);
+   bgChange4.mousePressed(bgFunction4);
+
+   currentBgImage = bgImage;
 }
 
 
-
 function draw() {
-  background(255);
-  image(bgImage,0,0);
+  // put drawing code here
+  image(currentBgImage, 0, 0);
 
+   if (changeColor == true) {
+       randomColor[0] = random(256);
+       randomColor[1] = random(256);
+       randomColor[2] = random(256);
+}
+
+function mousePressed() {
+  var d = dist(mouseX, mouseY, 360, 200);
+    if (d < 100) {
+      // Pick new random color values
+      r = random(255);
+      g = random(255);
+      b = random(255);
+    }
+
+    function bgFunction() {
+    currentBgImage = bgImage;
+}
+
+function bgFunction1() {
+    currentBgImage = bgImage2;
+}
+
+function bgFunction2() {
+    currentBgImage = bgImage3;
+}
+function bgFunction3() {
+    currentBgImage = bgImage4;
+}
 }

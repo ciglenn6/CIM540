@@ -16,8 +16,6 @@ sit = loadAnimation("assets/h1.png","assets/h2.png","assets/h3.png")
 
 function setup() {
   createCanvas(800,300);
-  animation = loadAnimation;
-  animation.play();
 }
 
 function draw() {
